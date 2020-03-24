@@ -19,15 +19,16 @@ Luego configura tu archivo .env, el cual con tendra la inormación de tu proyect
 
 ## Cabe recalcar que este proyecto no necesita de un servidor externo, ya que no tiene uso de base de datos, por ende podemos utilizar simplemente el servidor que incluye laravel para desarrollo:
 Corre el siguiente comando en la terminal en la raiz del proiyecto:
+
 - php artisan serve
 
 ## About testComplementos360
 Este proyecto corresponde al consumo de una API externa: http://www.balldontlie.io. El cual tiene como objetibo almacenar los datos en un archivo JSON, los cuales tendran la posibilidad de ser listados, filtrados, ordenados, editados y eliminados, persistiendo los datos en el archivo JSON.
 
 ## Ubicación de archivos:
--Los datos persistidos estan almacenados en los archivos (: public/jsondb/jugadores.json) && (: public/jsondb/team.json).
--El backend es manejado por el controlador (: ViewController.php).
--El frontend es manejado por javascript renderizando en la vista (: welcome.blade.php), con los archivos de funciones (: public/js/app.js) && (: public/js/edit.js).
+- Los datos persistidos estan almacenados en los archivos (: public/jsondb/jugadores.json) && (: public/jsondb/team.json).
+- El backend es manejado por el controlador (: ViewController.php).
+- El frontend es manejado por javascript renderizando en la vista (: welcome.blade.php), con los archivos de funciones (: public/js/app.js) && (: public/js/edit.js).
 
 ## CONSTRUCCIÓN ARCHIVO JSON (Persistencia de datos):
 
@@ -39,15 +40,28 @@ Este proyecto corresponde al consumo de una API externa: http://www.balldontlie.
 - Persistimos los datos  convirtiendo el JSON en una representacion de este en string.
 
 ## LISTAR LOS DATOS ALMACENADOS
+- Con el uso de JavaScript obtenemos la información de nuestro archivo JSON con el metodo "open();" y "send();".
+- Luego obtenemos el ID del elemento en donde queremos renderizar la información con el metodo "getElementById();"
+- Luego enviamos los datos mediante el metodo "innerHTML".
 
 ## CREAR Y ALMACENAR NUEVO JUGADOR:
+- Frontend: Con JavaScript obtenemos los datos correspondientes a los equipos para que puedan ser listados y seleccionados en la creación del nuevo jugador.
+
+-Backend: Resivimos los datos del formulario, con los cuales empesamos a crear nuestro nuevo objeto, incluyendo el equipo con el cual almacenamos todos los datos correspondientes a ese equipo en el jugador. Resivimos los datos de los archivos JSON y lo transformamos en un arreglo de objetos de tal manera que podremos agregar un nuevo objeto al final del arreglo. 
 
 
+## EDITAR Y ALMACENAR JUGADOR:
+- Frontend: Con JavaScript obtenemos los datos correspondientes al Jugador y todos los equipos para que puedan ser listados y seleccionados en la creación del nuevo jugador. En la vista encontramos los datos d este jugador para editarlos.
 
-EDITAR Y ALMACENAR JUGADOR:
+-Backend: Resivimos los datos del formulario, con los cuales empesamos ciclar y buscamos el objeto en nuestro arreglo del archivo JSON que corresponde al editado, de esta manera modificamos sus campos corresondientes. luego persistimos los datos regrabando todo el nuevo arreglo en nuestro JSON transformandolo en un string para escritura. 
 
-ELIMINAR JUGADOR:
+## ELIMINAR JUGADOR:
 
+-Backend: Mediante un boton generado por JavaScript que contiene el url unico para la eliminación del objeto en nuestro JSON; para la eliminación utilizamos las funciones:
+    - unset: para la eliminación del dato en nuestro arreglo de objetos.
+    - array_values: Para reorganizar el arreglo de tal manera que el espacio en blanco dejado por el comando anterior sera ocupado por el elemento siguiente.
+
+## Laravel: 
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
@@ -60,59 +74,3 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
