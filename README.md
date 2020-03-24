@@ -7,7 +7,47 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## Obtener Proyecto
+
+Para iniciar, clona este repositorio en tu computadora, Siguiente abre una terminal en la raiz de estre proyecto, asegurandote de que tienes las dependencias de laravel instaladas corre los siguientes comandos:
+
+- composer install.
+- composer update.
+- cp .env.example .env
+
+Luego configura tu archivo .env, el cual con tendra la inormación de tu proyecto y correspondiente al servidor en el que alojes el proyecto.
+
+## Cabe recalcar que este proyecto no necesita de un servidor externo, ya que no tiene uso de base de datos, por ende podemos utilizar simplemente el servidor que incluye laravel para desarrollo:
+Corre el siguiente comando en la terminal en la raiz del proiyecto:
+- php artisan serve
+
+## About testComplementos360
+Este proyecto corresponde al consumo de una API externa: http://www.balldontlie.io. El cual tiene como objetibo almacenar los datos en un archivo JSON, los cuales tendran la posibilidad de ser listados, filtrados, ordenados, editados y eliminados, persistiendo los datos en el archivo JSON.
+
+## Ubicación de archivos:
+-Los datos persistidos estan almacenados en los archivos (: public/jsondb/jugadores.json) && (: public/jsondb/team.json).
+-El backend es manejado por el controlador (: ViewController.php).
+-El frontend es manejado por javascript renderizando en la vista (: welcome.blade.php), con los archivos de funciones (: public/js/app.js) && (: public/js/edit.js).
+
+## CONSTRUCCIÓN ARCHIVO JSON (Persistencia de datos):
+
+- Primero debemos utilizar una libreria desarrollada para el consumo de API's en Laravel llamada Guzzle (ref: http://docs.guzzlephp.org/en/stable/), la cual genera un cliente que realiza la petición a la api, y resive los datos que requerimos.
+- Podemos encontrar la solicitus en el controlador ViewController@create, el cual se encarga de traer toda la información de la API.
+- Los datos resividos corresponden a un String Codificado, por ende lo convertimos a JSON con la funcion "json_decode" de php.
+- Evitamos que el archivo se vuelva a crear si ya existe con la función "file_exists" de php.
+- Creamos el archivo que contendra nuestros datos con la función "fopen" de php.
+- Persistimos los datos  convirtiendo el JSON en una representacion de este en string.
+
+## LISTAR LOS DATOS ALMACENADOS
+
+## CREAR Y ALMACENAR NUEVO JUGADOR:
+
+
+
+EDITAR Y ALMACENAR JUGADOR:
+
+ELIMINAR JUGADOR:
+
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
