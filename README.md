@@ -57,7 +57,7 @@ Este proyecto corresponde al consumo de una API externa: http://www.balldontlie.
 
 ## ELIMINAR JUGADOR:
 
--Backend: Mediante un boton generado por JavaScript que contiene el url unico para la eliminación del objeto en nuestro JSON; para la eliminación utilizamos las funciones:
+- Backend: Mediante un boton generado por JavaScript que contiene el url unico para la eliminación del objeto en nuestro JSON; para la eliminación utilizamos las funciones:
     - unset: para la eliminación del dato en nuestro arreglo de objetos.
     - array_values: Para reorganizar el arreglo de tal manera que el espacio en blanco dejado por el comando anterior sera ocupado por el elemento siguiente.
 
